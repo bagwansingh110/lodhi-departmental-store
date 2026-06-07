@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lodhi Departmental Store | Adityapuram, Gwalior</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #2e7d32; /* Fresh Green */
+            --secondary-color: #ffca28; /* Yellow/Gold */
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-light: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #1b5e20;
+            color: white;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- FEATURES/SECTIONS --- */
+        .section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* --- ABOUT & LOCATION --- */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            background: var(--bg-light);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none; /* Hidden for simplicity in this demo */
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">LODHI DEPARTMENTAL STORE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-btn">Visit Us</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your One-Stop Shop in Adityapuram</h1>
+            <p>Welcome to Lodhi Departmental Store. We bring the best groceries, household essentials, and fashion to the heart of Gwalior.</p>
+            <a href="#categories" class="cta-btn" style="font-size: 1.2rem; padding: 10px 25px;">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="about-container">
+            <div class="about-text">
+                <div class="section-title" style="text-align: left;">
+                    <h2>About Our Store</h2>
+                </div>
+                <p>Located conveniently in <strong>Adityapuram, Gwalior</strong>, Lodhi Departmental Store has been serving the community with high-quality daily essentials. Whether you are looking for fresh groceries, daily household needs, or beauty products, we have it all under one roof.</p>
+                <br>
+                <p>We prioritize customer satisfaction and freshness. Come experience a hassle-free shopping experience right in your neighborhood.</p>
+            </div>
+            <div class="about-image">
+                <!-- Placeholder image representing a store -->
+                <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Store Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section id="categories" class="section" style="background-color: #f9f9f9;">
+        <div class="section-title">
+            <h2>What We Offer</h2>
+            <p>Everything you need, under one roof.</p>
+        </div>
+        
+        <div class="category-grid">
+            <!-- Category 1 -->
+            <div class="category-card">
+                <div class="cat-icon">🥦</div>
+                <h3>Fresh Groceries</h3>
+                <p>Fruits, vegetables, and fresh provisions.</p>
+            </div>
+            <!-- Category 2 -->
+            <div class="category-card">
+                <div class="cat-icon">🧴</div>
+                <h3>Home Care</h3>
+                <p>Detergents, cleaning supplies, and utilities.</p>
+            </div>
+            <!-- Category 3 -->
+            <div class="category-card">
+                <div class="cat-icon">👕</div>
+                <h3>Garments</h3>
+                <p>Clothing and fashion essentials for the family.</p>
+            </div>
+            <!-- Category 4 -->
+            <div class="category-card">
+                <div class="cat-icon">🍫</div>
+                <h3>Snacks & Beverages</h3>
+                <p>Packaged foods, chips, drinks, and sweets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION SECTION -->
+    <section id="contact" class="section contact-section">
+        <div class="section-title">
+            <h2>Contact & Location</h2>
+            <p>Find us easily in Adityapuram, Gwalior.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <!-- Contact Info -->
+            <div class="info-box">
+                <div class="info-item">
+                    <h3>📍 Address</h3>
+                    <p>Lodhi Departmental Store,<br>Adityapuram,<br>Gwalior, Madhya Pradesh</p>
+                </div>
+                <div class="info-item">
+                    <h3>📞 Phone</h3>
+                    <p>+91 81305 50369</p>
+                </div>
+                <div class="info-item">
+                    <h3>🕒 Store Hours</h3>
+                    <p>Mon - Sat: 7:30:00 AM - 10:00 PM</p>
+                    <p>Sunday: 7:30:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="info-box" style="display:flex; align-items:center; justify-content:center; background:#eee; min-height:300px;">
+                <p style="color:#666; text-align:center;">
+                    [Map Integration Placeholder]<br>
+                    (Google Maps Link would go here)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2023 Lodhi Departmental Store. All Rights Reserved.</p>
+        <p>Developed for Adityapuram, Gwalior.</p>
+    </footer>
+
+</body>
+</html>
